@@ -9,7 +9,8 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "@capacitor/core": "^7.4.4"
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/android": "^7.4.4"
   },
   "devDependencies": {
     "typescript": "latest",
