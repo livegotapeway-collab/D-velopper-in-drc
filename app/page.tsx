@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState } from "react";\nimport Link from "next/link";
 
 const modules = [
   ["👤","Profils","Présentez vos compétences, projets et expérience."],
@@ -11,7 +11,7 @@ const modules = [
   ["🏆","Challenges","Participez à des défis et mettez vos compétences en avant."],
   ["📚","Formations","Apprenez avec des ressources et parcours orientés pratique."],
   ["🌍","Espace Afrique","Élargissez votre réseau aux développeurs africains."],
-  ["🔐","Validation par code","Validez l’inscription avec un code à usage unique envoyé par e-mail."]
+  ["🔐","Validation par code","Inscription sécurisée par code e-mail."]
 ];
 
 export default function Home() {
@@ -30,8 +30,8 @@ export default function Home() {
       <div className="actions"><button className="primary" onClick={() => setJoined(true)}>Rejoindre gratuitement</button><a className="secondary" href="#modules">Voir les fonctionnalités</a></div>
       {joined && <p className="notice">✓ Ton espace développeur est prêt à être créé.</p>}
     </div><div className="card"><div className="dot">●</div><p>Écosystème développeur</p><h2>{active}</h2><small>Profils • Communauté • Missions • IA • Paiements • Challenges • Formations • Afrique</small></div></section>
-    <section id="modules" className="features">{modules.map(([icon,title,desc]) => <article key={title} onClick={() => setActive(title)}><b>{icon}</b><h3>{title}</h3><p>{desc}</p></article>)}</section>
-    <section className="join"><p className="eyebrow">VERSION FONDATION</p><h2>Construisons l’écosystème tech congolais.</h2><p>Cette version regroupe les modules clés de Developer in DRC. L’authentification, la validation par code, les données Supabase et les services de paiement/IA seront reliés aux écrans correspondants.</p><button className="primary" onClick={() => setJoined(true)}>Commencer</button></section>
+    <section id="modules" className="features">{modules.map(([icon,title,desc]) => <Link key={title} href={title==="Validation par code"?"/login":`/modules/${title.toLowerCase().replaceAll(" ","-").replace("é","e").replace("è","e").replace("à","a").replace("ô","o")}`}><article><b>{icon}</b><h3>{title}</h3><p>{desc}</p></article></Link>)}</section>
+    <section className="join"><p className="eyebrow">PLATEFORME</p><h2>Construisons l’écosystème tech congolais.</h2><p>Les modules sont maintenant accessibles comme de vrais espaces de l’application, avec Supabase pour les données et l’authentification.<button className="primary" onClick={() => setJoined(true)}>Commencer</button></section>
     <footer>© 2026 Developer in DRC • Fait pour les développeurs de RDC et d’Afrique</footer>
   </main>;
 }
