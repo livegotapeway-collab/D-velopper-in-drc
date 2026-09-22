@@ -55,3 +55,5 @@ footer{text-align:center;padding:30px;color:#63758b;border-top:1px solid #14283d
 .module-page footer{padding:30px 6%;border-top:1px solid #ddd}
 @media(max-width:800px){nav a{display:none}.hero{grid-template-columns:1fr;padding-top:60px}.features{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.features{grid-template-columns:1fr}.actions{flex-direction:column}.actions a{text-align:center}.auth-card{padding:26px}.auth-card h1{font-size:34px}}
+
+button{font:inherit}button:not(.primary){padding:10px 14px;border:1px solid #30445c;border-radius:10px;background:transparent;color:inherit;cursor:pointer}.grid a{text-decoration:none;color:inherit}.composer{background:#fff;padding:20px;border-radius:16px}.composer textarea,.composer input{background:#07111f;color:#fff;border:1px solid #30445c}.module-page .grid article{background:#fff;color:#07111f}.module-page .module-body{color:#07111f}.module-page nav button{color:inherit}.otp-box{display:grid;gap:10px;margin-top:16px}.notice{color:#70b8ff}
