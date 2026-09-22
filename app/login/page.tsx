@@ -9,7 +9,8 @@ export default function LoginPage(){
   const [mode,setMode]=useState<"signup"|"login">("signup");
   const [name,setName]=useState(""); const [email,setEmail]=useState(""); const [password,setPassword]=useState("");
   const [message,setMessage]=useState(""); const [loading,setLoading]=useState(false); const [otp,setOtp]=useState(""); const [verify,setVerify]=useState(false);
-  async function verifyCode(){ const {error}=await supabase.auth.verifyOtp({email,token:otp,type:"email"}); setMessage(error?error.message:"Compte validé. Vous pouvez maintenant vous connecter."); if(!error)setVerify(false); }\n  async function submit(e:FormEvent){e.preventDefault();setLoading(true);setMessage("");
+  async function verifyCode(){ const {error}=await supabase.auth.verifyOtp({email,token:otp,type:"email"}); setMessage(error?error.message:"Compte validé. Vous pouvez maintenant vous connecter."); if(!error)setVerify(false); }
+  async function submit(e:FormEvent){e.preventDefault();setLoading(true);setMessage("");
     if(mode==="signup"){
       const {error}=await supabase.auth.signUp({email,password,options:{data:{full_name:name}}});
       setMessage(error?error.message:"Code envoyé par e-mail. Entrez le code à 6 chiffres."); setVerify(!error);
