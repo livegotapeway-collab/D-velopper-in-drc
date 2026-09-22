@@ -1,2 +1,36 @@
-const features=[["👨🏾‍💻","Trouver des développeurs","Découvrez les talents tech de la RDC et d'Afrique."],["🚀","Présenter ses projets","Publiez vos applications, sites et projets open source."],["🤝","Collaborer","Trouvez des partenaires, clients et opportunités."],["🌍","Rayonner depuis l'Afrique","Construisez une vitrine professionnelle accessible au monde entier."]];
-export default function Home(){return <main><nav><strong>Développer<span> in DRC</span></strong><a href="#features">Fonctionnalités</a><a href="#join">Rejoindre</a><a href="/login">Connexion</a></nav><section className="hero"><div><p className="eyebrow">🇨🇩 RDC • AFRIQUE</p><h1>Les développeurs africains construisent <em>le futur.</em></h1><p className="lead">Une plateforme pour connecter les développeurs congolais et africains, présenter leurs projets et créer de nouvelles opportunités.</p><div className="actions"><a className="primary" href="/login">Créer mon compte</a><a className="secondary" href="#features">Découvrir</a></div></div><div className="card"><div className="dot">●</div><p>Communauté</p><h2>Construisons ensemble.</h2><small>Développeurs • Projets • Opportunités</small></div></section><section id="features" className="features">{features.map(([i,t,d])=><article key={t}><b>{i}</b><h3>{t}</h3><p>{d}</p></article>)}</section><section id="join" className="join"><p className="eyebrow">PREMIÈRE VERSION</p><h2>La communauté commence ici.</h2><p>Créez votre compte pour rejoindre la plateforme et préparer votre profil de développeur.</p><a className="primary" href="/login">Rejoindre gratuitement</a></section><footer>© 2026 Développer in DRC</footer></main>}
+'use client';
+
+import { useState } from "react";
+
+const modules = [
+  ["👤","Profils","Présentez vos compétences, projets et expérience."],
+  ["💬","Communauté","Échangez, partagez vos idées et trouvez des collaborateurs."],
+  ["💼","Missions","Publiez ou découvrez des missions et opportunités tech."],
+  ["🤖","Assistant IA","Obtenez de l’aide pour coder, déboguer et apprendre."],
+  ["💰","Paiements","Préparez une infrastructure de paiement adaptée aux services numériques."],
+  ["🏆","Challenges","Participez à des défis et mettez vos compétences en avant."],
+  ["📚","Formations","Apprenez avec des ressources et parcours orientés pratique."],
+  ["🌍","Afrique","Élargissez votre réseau aux développeurs africains."]
+];
+
+export default function Home() {
+  const [active, setActive] = useState("Accueil");
+  const [joined, setJoined] = useState(false);
+
+  return <main>
+    <nav><strong>Developer<span> in DRC</span></strong><div className="navlinks">
+      {["Accueil","Communauté","Missions","Challenges"].map(item => <button key={item} onClick={() => setActive(item)}>{item}</button>)}
+      <a href="/login">Connexion</a>
+    </div></nav>
+    <section className="hero"><div>
+      <p className="eyebrow">🇨🇩 RDC • AFRIQUE</p>
+      <h1>Une plateforme pour les développeurs qui <em>construisent.</em></h1>
+      <p className="lead">Developer in DRC réunit profils, projets, communauté, missions, apprentissage et outils IA dans un même espace.</p>
+      <div className="actions"><button className="primary" onClick={() => setJoined(true)}>Rejoindre gratuitement</button><a className="secondary" href="#modules">Voir les fonctionnalités</a></div>
+      {joined && <p className="notice">✓ Ton espace développeur est prêt à être créé.</p>}
+    </div><div className="card"><div className="dot">●</div><p>Écosystème développeur</p><h2>{active}</h2><small>Profils • Projets • Missions • IA • Formation</small></div></section>
+    <section id="modules" className="features">{modules.map(([icon,title,desc]) => <article key={title} onClick={() => setActive(title)}><b>{icon}</b><h3>{title}</h3><p>{desc}</p></article>)}</section>
+    <section className="join"><p className="eyebrow">VERSION FONDATION</p><h2>Construisons l’écosystème tech congolais.</h2><p>Cette version pose la base de l’application. Les modules seront reliés progressivement à l’authentification, à Supabase et aux services nécessaires.</p><button className="primary" onClick={() => setJoined(true)}>Commencer</button></section>
+    <footer>© 2026 Developer in DRC • Fait pour les développeurs de RDC et d’Afrique</footer>
+  </main>;
+}
