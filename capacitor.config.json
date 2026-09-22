@@ -1,0 +1,9 @@
+{
+  "appId": "cd.velopper.drc",
+  "appName": "Développer in DRC",
+  "webDir": "out",
+  "server": {
+    "url": "https://d-velopper-in-drc.vercel.app",
+    "cleartext": false
+  }
+}
