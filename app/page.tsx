@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from "react";\nimport Link from "next/link";
+import { useState } from "react";
+import Link from "next/link";
 
 const modules = [
   ["👤","Profils","Présentez vos compétences, projets et expérience."],
